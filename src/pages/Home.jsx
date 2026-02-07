@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Seo from "../components/Seo";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import ProductCard from "../components/ProductCard";
 import WhatsAppButton from "../components/WhatsAppButton";
@@ -50,12 +51,17 @@ export default function Home() {
             </p>
 
             <div className="flex gap-4">
-              <Button>Order Now</Button>
-              <Button variant="secondary">Explore Menu</Button>
+              <Link to="/order">
+                <Button variant="primary">Order Now</Button>
+              </Link>
+
+              <Link to="/menu">
+                <Button variant="secondary">Explore Menu</Button>
+              </Link>
             </div>
           </div>
 
-          {/* Visual placeholder */}
+          {/* Hero Image */}
           <div className="relative w-full h-[280px] sm:h-[360px] md:h-[480px] lg:h-[560px]">
             <img
               src={Hero}
