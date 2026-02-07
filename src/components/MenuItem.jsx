@@ -1,7 +1,7 @@
 import WhatsAppButton from "./WhatsAppButton";
 
 export default function MenuItem({ name, description, price, image }) {
-  const message = `Hi Musk Mint! I’d like to order:\n${name} (${price})`;
+  const message = `Hi Musk Mint Team! I’d like to order:\n${name} (${price})`;
 
   return (
     <div className="flex justify-between items-start gap-4 py-4 border-b border-gray-100">

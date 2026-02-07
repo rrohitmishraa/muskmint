@@ -56,12 +56,14 @@ export default function Home() {
           </div>
 
           {/* Visual placeholder */}
-          <img
-            src={Hero}
-            alt="Healthy Fruit Table"
-            className="w-max h-max rounded-[50px] object-cover"
-            loading="lazy"
-          />
+          <div className="relative w-full h-[280px] sm:h-[360px] md:h-[480px] lg:h-[560px]">
+            <img
+              src={Hero}
+              alt="Healthy Fruit Table"
+              className="absolute inset-0 w-full h-full object-cover rounded-[32px]"
+              loading="lazy"
+            />
+          </div>
         </section>
 
         {/* FEATURED PRODUCTS */}

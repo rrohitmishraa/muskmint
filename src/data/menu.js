@@ -1,8 +1,8 @@
-import tropicalBowl from "../assets/images/home/tropicalBowl.jpg";
-import berryBowl from "../assets/images/home/berry-bowl.jpg";
-import greenDetoxSmoothie from "../assets/images/home/green-detox-smoothie.jpg";
-import freshVeggiesalad from "../assets/images/home/fresh-veggie-salad.png";
-import peanutButterSmoothie from "../assets/images/home/peanut-butter-smoothie.png";
+import tropicalBowl from "../assets/images/home/tropicalBowl.webp";
+import berryBowl from "../assets/images/home/berry-bowl.webp";
+import greenDetoxSmoothie from "../assets/images/home/green-detox-smoothie.webp";
+import freshVeggiesalad from "../assets/images/home/fresh-veggie-salad.webp";
+import peanutButterSmoothie from "../assets/images/home/peanut-butter-smoothie.webp";
 
 export const menu = {
   bowls: [

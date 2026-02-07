@@ -1,8 +1,8 @@
-import fruits from "../assets/images/home/fruits.jpg";
-import vegetables from "../assets/images/home/vegetables.jpg";
-import smoothiePour from "../assets/images/home/smoothie-pour.jpg";
-import fruitCloseup from "../assets/images/home/fruit-closeup.jpg";
-import kitchenPrep from "../assets/images/home/kitchen-prep.jpg";
+import fruits from "../assets/images/home/fruits.webp";
+import vegetables from "../assets/images/home/vegetables.webp";
+import smoothiePour from "../assets/images/home/smoothie-pour.webp";
+import fruitCloseup from "../assets/images/home/fruit-closeup.webp";
+import kitchenPrep from "../assets/images/home/kitchen-prep.webp";
 
 export default function MasonryGallery() {
   const galleryItems = [
