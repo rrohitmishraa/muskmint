@@ -11,7 +11,7 @@ export default function Menu() {
       />
 
       <main className="min-h-screen px-4 py-16">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1400px] mx-auto">
           <h1 className="text-3xl font-semibold mb-10">Menu</h1>
 
           <div className="grid gap-10 lg:grid-cols-3">

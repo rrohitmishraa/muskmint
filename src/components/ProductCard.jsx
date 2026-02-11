@@ -5,12 +5,14 @@ export default function ProductCard({ name, price, image }) {
 
   return (
     <div className="bg-white rounded-2xl shadow-soft overflow-hidden flex flex-col">
-      <img
-        src={image}
-        alt={name}
-        className="w-full h-48 object-cover"
-        loading="lazy"
-      />
+      <div className="w-full aspect-square">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
 
       <div className="p-4 flex-1 flex flex-col">
         <h3 className="text-base font-medium text-gray-900 mb-2">{name}</h3>

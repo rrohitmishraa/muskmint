@@ -10,7 +10,7 @@ export default function About() {
       />
 
       <main className="min-h-screen px-4 py-16">
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-7xl 2xl:max-w-[1400px] mx-auto space-y-6">
           <Card>
             <h1 className="text-2xl font-semibold mb-3">About Musk Mint</h1>
 
