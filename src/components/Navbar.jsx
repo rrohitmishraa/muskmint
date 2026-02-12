@@ -73,6 +73,9 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-white border-t">
           <div className="px-4 py-4 flex flex-col gap-4 text-sm font-medium">
+            <Link to="/" className="hover:text-primary">
+              Home
+            </Link>
             <Link to="/menu" onClick={() => setOpen(false)}>
               Menu
             </Link>
