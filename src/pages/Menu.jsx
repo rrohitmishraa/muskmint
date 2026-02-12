@@ -1,50 +1,87 @@
-import { menu } from "../data/menu";
-import MenuItem from "../components/MenuItem";
+import { useState } from "react";
 import Seo from "../components/Seo";
+import ProductCard from "../components/ProductCard";
+import { menu } from "../data/menu";
 
 export default function Menu() {
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = Object.keys(menu);
+
   return (
     <>
       <Seo
         title="Menu – Musk Mint"
-        description="Explore fresh fruit bowls, smoothies, salads and healthy meals at Musk Mint."
+        description="Explore fresh fruit bowls, smoothies and salads."
       />
 
-      <main className="min-h-screen px-4 py-16">
+      <main className="min-h-screen px-4 pt-24 pb-20 bg-[#F8FAF9]">
         <div className="max-w-7xl 2xl:max-w-[1400px] mx-auto">
-          <h1 className="text-3xl font-semibold mb-10">Menu</h1>
+          <h1 className="text-3xl lg:text-4xl font-semibold mb-8">Menu</h1>
 
-          <div className="grid gap-10 lg:grid-cols-3">
-            {/* Bowls */}
-            <section>
-              <h2 className="text-lg font-semibold mb-4">Fruit Bowls</h2>
-              <div className="bg-white rounded-2xl shadow-soft px-4">
-                {menu.bowls.map((item) => (
-                  <MenuItem key={item.id} {...item} />
-                ))}
-              </div>
-            </section>
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search items..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full rounded-xl border px-5 py-3 mb-6"
+          />
 
-            {/* Smoothies */}
-            <section>
-              <h2 className="text-lg font-semibold mb-4">Smoothies</h2>
-              <div className="bg-white rounded-2xl shadow-soft px-4">
-                {menu.smoothies.map((item) => (
-                  <MenuItem key={item.id} {...item} />
-                ))}
-              </div>
-            </section>
+          {/* Categories */}
+          <div className="flex flex-wrap gap-3 mb-12">
+            <button
+              onClick={() => setActiveCategory("all")}
+              className="px-4 py-2 rounded-full bg-primary text-white text-sm"
+            >
+              All
+            </button>
 
-            {/* Salads */}
-            <section>
-              <h2 className="text-lg font-semibold mb-4">Salads</h2>
-              <div className="bg-white rounded-2xl shadow-soft px-4">
-                {menu.salads.map((item) => (
-                  <MenuItem key={item.id} {...item} />
-                ))}
-              </div>
-            </section>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className="px-4 py-2 rounded-full bg-white border text-sm capitalize"
+              >
+                {category}
+              </button>
+            ))}
           </div>
+
+          {/* Products */}
+          {categories.map((category) => {
+            if (activeCategory !== "all" && activeCategory !== category)
+              return null;
+
+            const filteredItems = menu[category].filter((item) =>
+              item.name.toLowerCase().includes(search.toLowerCase()),
+            );
+
+            if (filteredItems.length === 0) return null;
+
+            return (
+              <section key={category} className="mb-16">
+                <h2 className="text-xl font-semibold mb-6 capitalize">
+                  {category}
+                </h2>
+
+                <div
+                  className="
+                  grid 
+                  gap-6 
+                  md:grid-cols-2 
+                  lg:grid-cols-3 
+                  xl:grid-cols-4
+                "
+                >
+                  {filteredItems.map((item) => (
+                    <ProductCard key={item.id} {...item} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </main>
     </>
