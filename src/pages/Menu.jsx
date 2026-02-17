@@ -7,12 +7,6 @@ export default function Menu() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const categories = ["salads", "smoothies"];
-  // { key: "all", label: "All" },
-  //             { key: "smoothies", label: "🥤 Smoothies" },
-  //             { key: "salads", label: "🥗 Salads" },
-
-  // Helper to filter items
   const filterItems = (items) =>
     items.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase()),
