@@ -5,13 +5,16 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
+  /* -----------------------------
+     ADD TO CART (ID BASED)
+     ----------------------------- */
   const addToCart = (item) => {
     setCart((prev) => {
-      const existing = prev.find((p) => p.name === item.name);
+      const existing = prev.find((p) => p.id === item.id);
 
       if (existing) {
         return prev.map((p) =>
-          p.name === item.name ? { ...p, quantity: p.quantity + 1 } : p,
+          p.id === item.id ? { ...p, quantity: p.quantity + 1 } : p,
         );
       }
 
@@ -19,28 +22,40 @@ export function CartProvider({ children }) {
     });
   };
 
-  const increaseQuantity = (name) => {
+  /* -----------------------------
+     INCREASE QUANTITY
+     ----------------------------- */
+  const increaseQuantity = (id) => {
     setCart((prev) =>
       prev.map((item) =>
-        item.name === name ? { ...item, quantity: item.quantity + 1 } : item,
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
       ),
     );
   };
 
-  const decreaseQuantity = (name) => {
+  /* -----------------------------
+     DECREASE QUANTITY
+     ----------------------------- */
+  const decreaseQuantity = (id) => {
     setCart((prev) =>
       prev
         .map((item) =>
-          item.name === name ? { ...item, quantity: item.quantity - 1 } : item,
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
         )
         .filter((item) => item.quantity > 0),
     );
   };
 
-  const removeItem = (name) => {
-    setCart((prev) => prev.filter((item) => item.name !== name));
+  /* -----------------------------
+     REMOVE ITEM
+     ----------------------------- */
+  const removeItem = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
+  /* -----------------------------
+     CLEAR CART
+     ----------------------------- */
   const clearCart = () => setCart([]);
 
   return (

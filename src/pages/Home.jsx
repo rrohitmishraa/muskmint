@@ -26,9 +26,32 @@ export default function Home() {
   }, []);
 
   const allProducts = [
-    ...menu.bowls.map((p) => ({ ...p, category: "bowls" })),
-    ...menu.smoothies.map((p) => ({ ...p, category: "smoothies" })),
-    ...menu.salads.map((p) => ({ ...p, category: "salads" })),
+    // Salads
+    ...(menu.salads || []).map((item) => ({
+      ...item,
+      category: "salads",
+    })),
+
+    // Smoothies - Classic
+    ...(menu.smoothies?.classicFruit || []).map((item) => ({
+      ...item,
+      category: "smoothies",
+      subCategory: "classicFruit",
+    })),
+
+    // Smoothies - Protein Packed
+    ...(menu.smoothies?.proteinPacked || []).map((item) => ({
+      ...item,
+      category: "smoothies",
+      subCategory: "proteinPacked",
+    })),
+
+    // Smoothies - Refreshers
+    ...(menu.smoothies?.refreshers || []).map((item) => ({
+      ...item,
+      category: "smoothies",
+      subCategory: "refreshers",
+    })),
   ];
 
   const filteredProducts = allProducts.filter((p) => {
@@ -167,8 +190,7 @@ export default function Home() {
 
           <div className="flex gap-3 flex-wrap">
             {[
-              { key: "all", label: "All" },
-              { key: "bowls", label: "🥣 Bowls" },
+              { key: "all", label: "✨ All" },
               { key: "smoothies", label: "🥤 Smoothies" },
               { key: "salads", label: "🥗 Salads" },
             ].map((cat) => (

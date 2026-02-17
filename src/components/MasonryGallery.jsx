@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+
+//gallery images
 import fruits from "../assets/images/home/fruits.webp";
 import vegetables from "../assets/images/home/vegetables.webp";
 import smoothiePour from "../assets/images/home/smoothie-pour.webp";
 import fruitCloseup from "../assets/images/home/fruit-closeup.webp";
 import kitchenPrep from "../assets/images/home/kitchen-prep.webp";
+import peanutButter from "../assets/images/home/peanut-butter-smoothie.webp";
 
 export default function MasonryGallery() {
   const [isMobile, setIsMobile] = useState(false);
@@ -24,6 +27,7 @@ export default function MasonryGallery() {
     { src: smoothiePour, mobile: 18, desktop: 26 },
     { src: fruitCloseup, mobile: 12, desktop: 16 },
     { src: kitchenPrep, mobile: 16, desktop: 20 },
+    { src: peanutButter, mobile: 16, desktop: 20 },
   ];
 
   return (
