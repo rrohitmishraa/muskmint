@@ -15,6 +15,7 @@ export default function Cart() {
     "Sector 12",
     "Sector 13",
     "Sector 14",
+    "Dwarka More",
   ];
 
   const [selectedSector, setSelectedSector] = useState("");
